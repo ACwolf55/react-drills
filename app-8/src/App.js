@@ -1,26 +1,34 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios'
 
-function App() {
+class App extends Component {
+  constructor(){
+    super ()
+
+    this.state = {
+      lukeSkywalker: ""
+    }
+  }
+componentDidMount(){
+  axios.get("https://swapi.dev/api/people/1/").then(res => {
+    this.setState({ lukeSkywalker: res.data})
+  })
+}
+
+render() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <h1> Name: {this.state.lukeSkywalker.name}</h1>
+    <h1> Birth Year: {this.state.lukeSkywalker.birth_year}</h1>
+    <h1> Height: {this.state.lukeSkywalker.height}cm</h1>
+    <h1> Gender: {this.state.lukeSkywalker.gender}</h1>
     </div>
   );
+  }
+
 }
+
 
 export default App;

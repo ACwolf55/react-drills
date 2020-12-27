@@ -1,26 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Image from './Image'
 
-function App() {
+class App extends Component {
+  render(){
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Image url={'https://images.squarespace-cdn.com/content/51b3dc8ee4b051b96ceb10de/1545711785883-JU21MGUKCQNOTJKZFX15/new-star-wars-christmas-art-may-the-force-be-with-you-this-holiday-season-social.jpg?format=1500w&content-type=image%2Fjpeg'}/>
     </div>
   );
+}
 }
 
 export default App;
